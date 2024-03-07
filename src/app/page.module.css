@@ -1,0 +1,85 @@
+/* src/page.module.css */
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background:linear-gradient(to bottom right, black, gold);
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.nav {
+  text-align: center;
+}
+
+.bookList {
+  list-style: none;
+  padding: 0;
+}
+
+.bookList li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.bookList li:last-child {
+  margin-right: 0;
+}
+
+
+.section {
+  margin-top: 20px;
+}
+
+.book {
+  background-color: gold;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.book:hover {
+  cursor: pointer;
+}
+.bookTitle {
+  color: black;
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+
+
+/* For mid-sized screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bookList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display 3 columns */
+    gap: 20px; /* Adjust the gap between grid items */
+  }
+
+
+  .section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Display 3 columns */
+    gap: 20px; /* Adjust the gap between grid items */
+  }
+}
+
+
+/* For larger screens */
+@media (min-width: 1024px) {
+  .bookList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display 4 columns */
+    gap: 20px; /* Adjust the gap between grid items */
+  }
+
+  .section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display 4 columns */
+    gap: 20px; /* Adjust the gap between grid items */
+  }
+
+}
