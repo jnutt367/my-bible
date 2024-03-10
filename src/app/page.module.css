@@ -5,29 +5,35 @@
   margin: 0 auto;
   padding: 20px;
   background:linear-gradient(to bottom right, black, gold);
+  color: white;
 }
 
 .title {
   text-align: center;
   font-size: 2rem;
+  color: white;
 }
 
 .nav {
   text-align: center;
+  color: white;
 }
 
 .bookList {
   list-style: none;
   padding: 0;
+  color: white;
 }
 
 .bookList li {
   display: inline-block;
   margin-right: 10px;
+  color: white;
 }
 
 .bookList li:last-child {
   margin-right: 0;
+  color: white;
 }
 
 
@@ -36,7 +42,7 @@
 }
 
 .book {
-  background-color: gold;
+  background-color: #ffdc73;
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -54,6 +60,7 @@
 /* For mid-sized screens */
 @media (min-width: 768px) and (max-width: 1023px) {
   .bookList {
+    
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Display 3 columns */
     gap: 20px; /* Adjust the gap between grid items */
