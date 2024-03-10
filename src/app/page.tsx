@@ -1,6 +1,4 @@
-import Image from "next/image";
-// src/page.tsx
-
+import { useState } from 'react';
 import styles from './page.module.css';
 
 const books = [
@@ -21,18 +19,32 @@ const books = [
 ];
 
 const Page = () => {
+  const [selectedBook, setSelectedBook] = useState('');
+
+  const handleSelectBook = (book) => {
+    setSelectedBook(book);
+    // Optionally, you can scroll to the selected book's section
+    const element = document.getElementById(book);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>The Word of God Risen</h1>
-      <nav className={styles.nav}>
-        <ul className={styles.bookList}>
+      <div className={styles.dropdown}>
+        <select
+          value={selectedBook}
+          onChange={(e) => handleSelectBook(e.target.value)}
+          className={styles.dropdownSelect}
+        >
+          <option value="" disabled>Select a Book</option>
           {books.map(book => (
-            <li key={book}>
-              <a href={`#${book}`}>{book}</a>
-            </li>
+            <option key={book} value={book}>{book}</option>
           ))}
-        </ul>
-      </nav>
+        </select>
+      </div>
       <section className={styles.section}>
         {books.map(book => (
           <div key={book} id={book} className={styles.book}>
