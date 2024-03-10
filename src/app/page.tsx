@@ -1,5 +1,6 @@
-import { useClient } from '@vercel/client';
-import { useState } from 'react';
+import Image from "next/image";
+// src/page.tsx
+
 import styles from './page.module.css';
 
 const books = [
@@ -20,34 +21,18 @@ const books = [
 ];
 
 const Page = () => {
-  useClient(); // Mark the component as a Client Component
-
-  const [selectedBook, setSelectedBook] = useState('');
-
-  const handleSelectBook = (book) => {
-    setSelectedBook(book);
-    // Optionally, you can scroll to the selected book's section
-    const element = document.getElementById(book);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>The Word of God Risen</h1>
-      <div className={styles.dropdown}>
-        <select
-          value={selectedBook}
-          onChange={(e) => handleSelectBook(e.target.value)}
-          className={styles.dropdownSelect}
-        >
-          <option value="" disabled>Select a Book</option>
+      <nav className={styles.nav}>
+        <select className={styles.bookList}>
           {books.map(book => (
-            <option key={book} value={book}>{book}</option>
+            <li key={book}>
+              <a href={`#${book}`}>{book}</a>
+            </li>
           ))}
         </select>
-      </div>
+      </nav>
       <section className={styles.section}>
         {books.map(book => (
           <div key={book} id={book} className={styles.book}>
@@ -60,5 +45,5 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Page; 
 
