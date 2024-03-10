@@ -1,3 +1,4 @@
+import { useClient } from '@vercel/client';
 import { useState } from 'react';
 import styles from './page.module.css';
 
@@ -19,6 +20,8 @@ const books = [
 ];
 
 const Page = () => {
+  useClient(); // Mark the component as a Client Component
+
   const [selectedBook, setSelectedBook] = useState('');
 
   const handleSelectBook = (book) => {
@@ -58,3 +61,4 @@ const Page = () => {
 };
 
 export default Page;
+
