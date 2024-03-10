@@ -25,14 +25,20 @@ const Page = () => {
     <main className={styles.main}>
       <h1 className={styles.title}>The Word of God Risen</h1>
       <nav className={styles.nav}>
-        <select className={styles.bookList}>
+        <select
+          value={selectedBook}
+          onChange={(e) => handleSelectBook(e.target.value)}
+          className={styles.dropdownSelect}
+        >
+          <option value="" disabled>Select a Book</option>
           {books.map(book => (
-            <li key={book}>
-              <a href={`#${book}`}>{book}</a>
-            </li>
+            <option key={book} value={book}>{book}</option>
           ))}
         </select>
       </nav>
+
+
+      
       <section className={styles.section}>
         {books.map(book => (
           <div key={book} id={book} className={styles.book}>
